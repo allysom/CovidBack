@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Controle de Acesso</title>
+
+	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
+</head>
+<body>
+	<form class="form" action="">
+		<div class="card">
+			<div class="card-top">
+				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
+				<h2 class="title">UNIPAC</h2>
+				<p>Meus Exames</p>
+			</div>
+            {% if exames %}
+                <ul>
+                {% for exame in exames %}
+                    <li><a href="/exames/{{ exame.id }}/">Exame: {{ exame.id }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Você não cadastrou nenhum exame!</p>
+            {% endif %}
+			<div class="card-group btn">
+				<a href="{% url 'exame-add' %}">
+                    <button type="button">NOVO EXAME</button>
+                </a>
+			</div>
+			<div class="card-group btn">
+				<a href="{% url 'menu' %}">
+                    <button type="button">VOLTAR</button>
+                </a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
