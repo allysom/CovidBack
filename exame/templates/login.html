@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Controle de Acesso</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<form class="form" action="">
+		<div class="card">
+			<div class="card-top">
+				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
+				<h2 class="title">UNIPAC</h2>
+				<p>Sistema de Triagem</p>
+			</div>
+
+			<div class="card-group">
+				<input type="email" name="email" placeholder="Digite seu e-mail" required>
+			</div>
+
+			<div class="card-group">
+				<input type="password" name="senha" placeholder="Digite sua senha" required>
+			</div>
+
+			<div class="card-group">
+				<label><input type="checkbox">Lembre-me</label>
+			</div>
+
+			<div class="card-group btn">
+                <a href="{% url 'menu' %}">
+				    <button class="btn-vermelho" type="button">ACESSAR</button>
+                </a>
+			</div>
+
+			<div class="card-group btn">
+				<a href="{% url 'cadastro' %}">
+                    <button class="btn-vermelho" type="button">CADASTRAR</button>
+                </a>
+			</div>
+
+		</div>
+	</form>
+</body>
+</html>

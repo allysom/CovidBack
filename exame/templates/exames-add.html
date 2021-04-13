@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Controle de Acesso</title>
+
+	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
+</head>
+<body>
+	<form class="form" action="">
+		<div class="card">
+			<div class="card-top">
+				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
+				<h2 class="title">UNIPAC</h2>
+				<p>..:SINTOMAS:..</p>
+			</div>
+
+			<div class="card-one">
+				<p>Sintomas mais comuns</p>
+			</div>
+
+			<div class="card-one">
+				<label>Febre: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Tosse seca: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Cansaço: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+			</div>
+
+			<div class="card-two">
+				<p>Sintomas menos comuns:</p>
+			</div>
+
+			<div class="card-two">
+				<label>Dores e Desconfortos: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Dor de Garganta: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Diarreia: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Conjuntivite: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Dor de Cabeça: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Perda de paladar ou olfato: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+			</div>
+
+			<div class="card-three">
+				<p>Sintomas graves:</p>
+			</div>
+
+			<div class="card-three">
+				<label>Dificuldade de respirar ou falta de ar: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Dor ou pressão no peito: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label>Perda de fala ou movimento: </label>
+				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+			</div>
+
+			<div class="card-group btn">
+				<a href="{% url 'exame-add' %}">
+                    <button type="button">ENVIAR</button>
+                </a>
+			</div>
+			<div class="card-group btn">
+				<a href="{% url 'exame' %}">
+                    <button type="button">CANCELAR</button>
+                </a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
