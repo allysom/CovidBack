@@ -10,46 +10,46 @@
 	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
 </head>
 <body>
-	<form class="form" action="cadastro" method="POST">
+	<form class="form" action="perfil" method="POST">
 		{% csrf_token %}
 		<div class="card">
 			<div class="card-top">
 				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
 				<h2 class="title">UNIPAC</h2>
-				<p>Cadastro</p>
+				<p>Meu Perfil</p>
+			</div>
+			
+			<div class="card-group">
+				<input type="email" name="email" value="{{email}}" placeholder="Informe um e-mail*" readonly>
 			</div>
 
 			<div class="card-group">
-				<input type="email" name="email" placeholder="Informe um e-mail*" required>
+				<input type="password" name="senha" value="" placeholder="Informe uma senha*" required>
 			</div>
 
 			<div class="card-group">
-				<input type="password" name="senha" placeholder="Informe uma senha*" required>
+				<input type="text" name="nome" value="{{nome}}" placeholder="Informe seu nome completo*" required>
 			</div>
 
 			<div class="card-group">
-				<input type="text" name="nome" placeholder="Informe seu nome completo*" required>
+				<input type="text" name="cpf" value="{{cpf}}" placeholder="Informe seu CPF*" readonly>
 			</div>
 
 			<div class="card-group">
-				<input type="text" name="cpf" placeholder="Informe seu CPF*" required>
+				<input type="text" name="telefone" value="{{telefone}}" placeholder="Informe seu Telefone">
 			</div>
 
 			<div class="card-group">
-				<input type="text" name="telefone" placeholder="Informe seu Telefone">
-			</div>
-
-			<div class="card-group">
-				<input type="text" name="endereco" placeholder="Informe seu Endereço*" required>
+				<input type="text" name="endereco" value="{{endereco}}" placeholder="Informe seu Endereço*" required>
 			</div>
 
 			<div class="card-group btn">
-                <a href="{% url 'cadastro' %}">
-				    <button type="submit">CADASTRAR</button>
+                <a href="#">
+				    <button type="submit">ALTERAR</button>
                 </a>
 			</div>
 			<div class="card-group btn">
-                <a href="{% url 'login' %}">
+                <a href="{% url 'menu' %}">
 				    <button type="button">VOLTAR</button>
                 </a>
 			</div>

@@ -8,6 +8,23 @@
 	<title>Controle de Acesso</title>
 
 	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
+	<style>
+		table {
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		td, th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+	</style>
 </head>
 <body>
 	<form class="form" action="">
@@ -17,15 +34,30 @@
 				<h2 class="title">UNIPAC</h2>
 				<p>Meus Exames</p>
 			</div>
+
             {% if exames %}
-                <ul>
-                {% for exame in exames %}
-                    <li><a href="/exames/{{ exame.id }}/">Exame: {{ exame.id }}</a></li>
-                {% endfor %}
-                </ul>
+                
+				<table>
+					<tr>
+						<th>Nro</th>
+						<th>Data</th>
+						<th>Resultado</th>
+						<th>Ações</th>
+					</tr>
+					{% for exame in exames %}
+					<tr>
+						<td>{{exame.id}}</td>
+						<td>{{exame.data}}</td>
+						<td>{{exame.resultado}}%</td>
+						<td><a href="/exame/{{ exame.id }}">Visualizar</a></td>
+					</tr>
+					{% endfor %}
+				</table>
             {% else %}
                 <p>Você não cadastrou nenhum exame!</p>
             {% endif %}
+
+			<br>
 			<div class="card-group btn">
 				<a href="{% url 'exame-add' %}">
                     <button type="button">NOVO EXAME</button>

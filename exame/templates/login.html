@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<form class="form" action="">
+	<form class="form" action="login" method="POST">
+		{% csrf_token %}
 		<div class="card">
 			<div class="card-top">
 				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
@@ -25,15 +26,11 @@
 			<div class="card-group">
 				<input type="password" name="senha" placeholder="Digite sua senha" required>
 			</div>
-
-			<div class="card-group">
-				<label><input type="checkbox">Lembre-me</label>
-			</div>
-
+			
+			<br>
+			
 			<div class="card-group btn">
-                <a href="{% url 'menu' %}">
-				    <button class="btn-vermelho" type="button">ACESSAR</button>
-                </a>
+				<button class="btn-vermelho" type="submit">ACESSAR</button>
 			</div>
 
 			<div class="card-group btn">

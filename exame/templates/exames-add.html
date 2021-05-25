@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
 </head>
 <body>
-	<form class="form" action="">
+	<form class="form" action="/exame/add" method="POST">
+		{% csrf_token %}
 		<div class="card">
 			<div class="card-top">
 				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
@@ -24,11 +25,11 @@
 
 			<div class="card-one">
 				<label>Febre: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="febre" value="true">Sim<input type="radio" name="febre" value="false">Não</label><br>
 				<label>Tosse seca: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="tosse" value="true">Sim<input type="radio" name="tosse" value="false">Não</label><br>
 				<label>Cansaço: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="cansaco" value="true">Sim<input type="radio" name="cansaco" value="false">Não</label><br>
 			</div>
 
 			<div class="card-two">
@@ -37,19 +38,19 @@
 
 			<div class="card-two">
 				<label>Dores e Desconfortos: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="desconforto" value="true">Sim<input type="radio" name="desconforto" value="false">Não</label><br>
 				<label>Dor de Garganta: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="dor_garganta" value="true">Sim<input type="radio" name="dor_garganta" value="false">Não</label><br>
 				<label>Diarreia: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="diarreia" value="true">Sim<input type="radio" name="diarreia" value="false">Não</label><br>
 				<label>Conjuntivite: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="conjuntivite" value="true">Sim<input type="radio" name="conjuntivite" value="false">Não</label><br>
 				<label>Dor de Cabeça: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="dor_cabeca" value="true">Sim<input type="radio" name="dor_cabeca" value="false">Não</label><br>
 				<label>Perda de paladar ou olfato: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="perda_paladar" value="true">Sim<input type="radio" name="perda_paladar" value="false">Não</label><br>
 				<label>Erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="erupcao_cutanea" value="true">Sim<input type="radio" name="erupcao_cutanea" value="false">Não</label><br>
 			</div>
 
 			<div class="card-three">
@@ -58,16 +59,16 @@
 
 			<div class="card-three">
 				<label>Dificuldade de respirar ou falta de ar: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="falta_ar" value="true">Sim<input type="radio" name="falta_ar" value="false">Não</label><br>
 				<label>Dor ou pressão no peito: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="dor_peito" value="true">Sim<input type="radio" name="dor_peito" value="false">Não</label><br>
 				<label>Perda de fala ou movimento: </label>
-				<label><input type="checkbox">Sim<input type="checkbox">Não</label><br>
+				<label><input type="radio" name="perda_fala" value="true">Sim<input type="radio" name="perda_fala" value="false">Não</label><br>
 			</div>
 
 			<div class="card-group btn">
-				<a href="{% url 'exame-add' %}">
-                    <button type="button">ENVIAR</button>
+				<a href="#">
+                    <button type="submit">ENVIAR</button>
                 </a>
 			</div>
 			<div class="card-group btn">

@@ -23,12 +23,15 @@ from exame import views as exame_view
 
 urlpatterns = [
     path('', exame_view.login, name='login'),
+    path('login', exame_view.login, name='login'),
     path('cadastro', exame_view.cadastro, name='cadastro'),
+    path('perfil', exame_view.perfil, name='perfil'),
     path('admin/', admin.site.urls),
     # ex: /exame/
     path('menu', exame_view.menu, name='menu'),
     path('exame/', exame_view.index, name='exame'),
     path('exame/add', exame_view.exame_add, name='exame-add'),
     # ex: /exame/5/
-    path('exame/<int:exame_id>/', exame_view.detail, name='detail'),
+    path('exame/<int:exame_id>', exame_view.detail, name='detail'),
+    path('logout', exame_view.logout, name='logout'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

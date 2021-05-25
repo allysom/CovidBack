@@ -1,5 +1,5 @@
+from login.models import Usuario
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Exame(models.Model):
@@ -21,4 +21,10 @@ class Exame(models.Model):
     dor_peito = models.BooleanField(default=False)
     perda_fala = models.BooleanField(default=False)
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    resultado = models.FloatField(blank=True, null=True, default=None)
+    
+    data = models.DateTimeField(auto_now=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+
+    user = models.ForeignKey(Usuario, on_delete=models.CASCADE)

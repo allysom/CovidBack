@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Controle de Acesso</title>
+
+	<link rel="stylesheet" href="{% static 'css/stylepesquisa.css' %} ">
+</head>
+<body>
+	<form class="form" action="/exame/add" method="POST">
+		{% csrf_token %}
+		<div class="card">
+			<div class="card-top">
+				<img class="imglogin" src="{% static 'img/user.png' %}" alt="">
+				<h2 class="title">UNIPAC</h2>
+				<p>..:SINTOMAS:..</p>
+			</div>
+
+			<div class="card-one">
+				<p>Sintomas mais comuns</p>
+			</div>
+
+			<div class="card-one">
+				<label>Febre: </label>
+				<label>{{exame.febre | yesno:"Sim, Não" }}<br>
+				<label>Tosse seca: </label>
+				<label>{{exame.tosse | yesno:"Sim, Não"}}<br>
+				<label>Cansaço: </label>
+				<label>{{exame.cansaco | yesno:"Sim, Não"}}<br>
+			</div>
+
+			<div class="card-two">
+				<p>Sintomas menos comuns:</p>
+			</div>
+
+			<div class="card-two">
+				<label>Dores e Desconfortos: </label>
+				<label>{{exame.desconforto | yesno:"Sim, Não"}}<br>
+				<label>Dor de Garganta: </label>
+				<label>{{exame.dor_garganta | yesno:"Sim, Não"}}<br>
+				<label>Diarreia: </label>
+				<label>{{exame.diarreia | yesno:"Sim, Não"}}<br>
+				<label>Conjuntivite: </label>
+				<label>{{exame.conjuntivite | yesno:"Sim, Não"}}<br>
+				<label>Dor de Cabeça: </label>
+				<label>{{exame.dor_cabeca | yesno:"Sim, Não"}}</label><br>
+				<label>Perda de paladar ou olfato: </label>
+				<label>{{exame.perda_paladar | yesno:"Sim, Não"}}</label><br>
+				<label>Erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés: </label>
+				<label>{{exame.erupcao_cutanea | yesno:"Sim, Não"}}<br>
+			</div>
+
+			<div class="card-three">
+				<p>Sintomas graves:</p>
+			</div>
+
+			<div class="card-three">
+				<label>Dificuldade de respirar ou falta de ar: </label>
+				<label>{{exame.falta_ar | yesno:"Sim, Não"}}<br>
+				<label>Dor ou pressão no peito: </label>
+				<label>{{exame.dor_peito | yesno:"Sim, Não"}}<br>
+				<label>Perda de fala ou movimento: </label>
+				<label>{{exame.perda_fala | yesno:"Sim, Não"}}<br>
+			</div>
+            
+            <br>
+            
+			<div class="card-group btn">
+				<a href="{% url 'exame' %}">
+                    <button type="button">VOLTAR</button>
+                </a>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
